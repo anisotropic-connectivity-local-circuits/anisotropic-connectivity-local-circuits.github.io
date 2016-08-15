@@ -1,0 +1,28 @@
+#+STARTUP: noindent showeverything
+#+OPTIONS: toc:nil; html-postamble:nil
+#+BEGIN_HTML
+---
+layout: page
+title: New something
+date: 2016-08-10
+category: new
+permalink: new/new-something
+---
+#+END_HTML
+
+
+more
+
+#+BEGIN_SRC python
+self_loops = g.new_graph_property("bool")
+self_loops[g] = self_loops_allowed
+g.graph_properties["self_loops"] = self_loops
+
+parallel_edges = g.new_graph_property("bool")
+parallel_edges[g] = parallel_edges_allowed
+g.graph_properties["parallel_edges"] = parallel_edges
+
+torus = g.new_graph_property("bool")
+torus[g] = Torus
+g.graph_properties["torus"] = torus
+#+END_SRC
