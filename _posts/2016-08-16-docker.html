@@ -8,21 +8,51 @@ permalink: reproduce/docker
 
 
 <p>
-more<br  />
+I'm using <code>felix11h/aniso_netw_env</code> on the Docker Hub.<br  />
+</p>
+
+<p>
+With the simple bash script <code>access_lab.sh</code> the computational environment can be accessed. In the directory, use<br  />
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #6c71c4;">.</span> access_lab.sh
+</pre>
+</div>
+<p>
+to get environment started.<br  />
+</p>
+
+
+<p>
+Here's a rundown of the<br  />
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #b58900;">self_loops</span> = g.new_graph_property(<span style="color: #2aa198;">"bool"</span>)
-<span style="color: #b58900;">self_loops</span>[g] = self_loops_allowed
-<span style="color: #b58900;">g.graph_properties</span>[<span style="color: #2aa198;">"self_loops"</span>] = self_loops
+<pre class="src src-sh"><span style="color: #586e75; font-style: italic;">#</span><span style="color: #657b83; font-style: italic;">!/bin/</span><span style="color: #859900;">bash</span>
 
-<span style="color: #b58900;">parallel_edges</span> = g.new_graph_property(<span style="color: #2aa198;">"bool"</span>)
-<span style="color: #b58900;">parallel_edges</span>[g] = parallel_edges_allowed
-<span style="color: #b58900;">g.graph_properties</span>[<span style="color: #2aa198;">"parallel_edges"</span>] = parallel_edges
-
-<span style="color: #b58900;">torus</span> = g.new_graph_property(<span style="color: #2aa198;">"bool"</span>)
-<span style="color: #b58900;">torus</span>[g] = Torus
-<span style="color: #b58900;">g.graph_properties</span>[<span style="color: #2aa198;">"torus"</span>] = torus
+docker run -it -p 127.0.0.1:8015:8000 <span style="color: #2aa198;">\</span>
+       --user=<span style="color: #2aa198;">"$(</span><span style="color: #839496;">id</span><span style="color: #2aa198;"> -u):$(</span><span style="color: #839496;">id</span><span style="color: #2aa198;"> -g)"</span> <span style="color: #2aa198;">\</span>
+       -v $(<span style="color: #839496;">pwd</span>):/home/lab felix11h/aniso_netw_env <span style="color: #2aa198;">\</span>
+       /bin/bash -c <span style="color: #2aa198;">\</span>
+       <span style="color: #2aa198;">'source /home/docker/env/neurosci/bin/activate;</span>
+<span style="color: #2aa198;">        screen -d -m /home/docker/env/neurosci/bin/smtweb --allips;</span>
+<span style="color: #2aa198;">        source startup_messg.sh;</span>
+<span style="color: #2aa198;">        bash'</span>
 </pre>
 </div>
+
+
+
+<p>
+In the next line<br  />
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">screen -d -m /home/docker/env/neurosci/bin/smtweb --allips
+</pre>
+</div>
+<p>
+the window manager <a href="https://www.gnu.org/software/screen/">screen</a> is used to run the process <code>smtweb --allips</code> in a detached session (<code>-d</code>) in the background.<br  />
+</p>

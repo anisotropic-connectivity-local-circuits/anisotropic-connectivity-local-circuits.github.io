@@ -11,5 +11,13 @@ permalink: reproduce/sumatra
 #+END_HTML
 
 
-more
+After starting the Docker container, navigate your browser to 
+#+BEGIN_SRC 
+http://127.0.0.1:8015
+#+END_SRC
 
+You should see a website
+
+
+
+What you see is the web interface of [[http://neuralensemble.org/sumatra/][Sumatra]]

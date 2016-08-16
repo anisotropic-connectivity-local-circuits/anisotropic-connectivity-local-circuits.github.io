@@ -11,18 +11,34 @@ permalink: reproduce/docker
 #+END_HTML
 
 
-more
+I'm using ~felix11h/aniso_netw_env~ on the Docker Hub.
 
-#+BEGIN_SRC python
-self_loops = g.new_graph_property("bool")
-self_loops[g] = self_loops_allowed
-g.graph_properties["self_loops"] = self_loops
-
-parallel_edges = g.new_graph_property("bool")
-parallel_edges[g] = parallel_edges_allowed
-g.graph_properties["parallel_edges"] = parallel_edges
-
-torus = g.new_graph_property("bool")
-torus[g] = Torus
-g.graph_properties["torus"] = torus
+With the simple bash script ~access_lab.sh~ the computational environment can be accessed. In the directory, use
+#+BEGIN_SRC sh
+. access_lab.sh
 #+END_SRC
+to get environment started. 
+
+
+Here's a rundown of the 
+
+#+BEGIN_SRC sh
+#!/bin/bash
+
+docker run -it -p 127.0.0.1:8015:8000 \
+       --user="$(id -u):$(id -g)" \
+       -v $(pwd):/home/lab felix11h/aniso_netw_env \
+       /bin/bash -c \
+       'source /home/docker/env/neurosci/bin/activate;
+        screen -d -m /home/docker/env/neurosci/bin/smtweb --allips;
+        source startup_messg.sh;
+        bash'
+#+END_SRC
+
+
+
+In the next line 
+#+BEGIN_SRC sh
+screen -d -m /home/docker/env/neurosci/bin/smtweb --allips
+#+END_SRC
+the window manager [[https://www.gnu.org/software/screen/][screen]] is used to run the process ~smtweb --allips~ in a detached session (~-d~) in the background.
