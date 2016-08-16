@@ -59,6 +59,8 @@ code {
 #navigation .nav-header {
     padding-left: 0;
     padding-right: 0;
+    font-size:0.9em;
+    color: #A9A9A9;
 }
 
 body.rtl {
