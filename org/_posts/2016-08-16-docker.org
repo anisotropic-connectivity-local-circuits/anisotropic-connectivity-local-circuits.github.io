@@ -10,7 +10,7 @@ permalink: reproduce/docker
 ---
 #+END_HTML
 
-I provide the full environment used for all computations referenced in the article in form of Docker image. In short, Docker is a --Wikipedia description--
+I provide the full environment used for all computations referenced in the article in form of Docker image. In short, [[https://www.docker.com/][Docker]] uses virtualization on the operating system level to provide "containers" for Linux applications and has been --Boettinger
 
 * Docker image
 
