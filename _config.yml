@@ -37,7 +37,7 @@ highlighter: rouge
 future: true
 
 # Exclude non-site files
-exclude: ['bin', 'README.md']
+exclude: ['bin', 'README.md', org/_posts, org/_drafts]
 
 # Use the kramdown Markdown renderer
 markdown: kramdown
@@ -52,3 +52,6 @@ redcarpet:
         'tables',
         'hardwrap'
     ]
+
+# Gems
+gems: [jekyll-sitemap]
