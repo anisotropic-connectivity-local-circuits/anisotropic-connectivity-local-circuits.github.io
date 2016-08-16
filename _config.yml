@@ -20,7 +20,8 @@ codeurl: 'https://github.com/bruth/jekyll-docs-template'
 # Default categories (in order) to appear in the navigation
 sections: [
     ['reproduce', 'REPRODUCIBILITY'],
-    ['docs', 'DOCUMENTATION']    
+    ['docs', 'DOCUMENTATION'],
+    ['trouble', 'TROUBLESHOOTING']
 ]
 
 # Keep as an empty string if served up at the root. If served up at a specific

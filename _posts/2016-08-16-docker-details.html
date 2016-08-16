@@ -1,0 +1,45 @@
+---
+layout: page
+title: Docker
+date: 2016-08-16
+category: trouble
+permalink: trouble/docker
+---
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Accessing the container</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Here's a rundown of <code>access_lab.sh</code>.<br  />
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #586e75; font-style: italic;">#</span><span style="color: #657b83; font-style: italic;">!/bin/</span><span style="color: #859900;">bash</span>
+
+docker run -it -p 127.0.0.1:8015:8000 <span style="color: #2aa198;">\</span>
+       --user=<span style="color: #2aa198;">"$(</span><span style="color: #839496;">id</span><span style="color: #2aa198;"> -u):$(</span><span style="color: #839496;">id</span><span style="color: #2aa198;"> -g)"</span> <span style="color: #2aa198;">\</span>
+       -v $(<span style="color: #839496;">pwd</span>):/home/lab felix11h/aniso_netw_env <span style="color: #2aa198;">\</span>
+       /bin/bash -c <span style="color: #2aa198;">\</span>
+       <span style="color: #2aa198;">'source /home/docker/env/neurosci/bin/activate;</span>
+<span style="color: #2aa198;">        screen -d -m /home/docker/env/neurosci/bin/smtweb --allips;</span>
+<span style="color: #2aa198;">        source startup_messg.sh;</span>
+<span style="color: #2aa198;">        bash'</span>
+</pre>
+</div>
+
+
+<p>
+In the next line<br  />
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">screen -d -m /home/docker/env/neurosci/bin/smtweb --allips
+</pre>
+</div>
+<p>
+the window manager <a href="https://www.gnu.org/software/screen/">screen</a> is used to run the process <code>smtweb --allips</code> in a detached session (<code>-d</code>) in the background.<br  />
+</p>
+</div>
+</div>

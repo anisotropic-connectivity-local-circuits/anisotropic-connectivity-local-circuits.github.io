@@ -1,0 +1,36 @@
+#+STARTUP: noindent showeverything
+#+OPTIONS: toc:nil; html-postamble:nil
+#+BEGIN_HTML
+---
+layout: page
+title: Docker
+date: 2016-08-16
+category: trouble
+permalink: trouble/docker
+---
+#+END_HTML
+
+
+* Accessing the container 
+
+Here's a rundown of ~access_lab.sh~.
+
+#+BEGIN_SRC sh
+#!/bin/bash
+
+docker run -it -p 127.0.0.1:8015:8000 \
+       --user="$(id -u):$(id -g)" \
+       -v $(pwd):/home/lab felix11h/aniso_netw_env \
+       /bin/bash -c \
+       'source /home/docker/env/neurosci/bin/activate;
+        screen -d -m /home/docker/env/neurosci/bin/smtweb --allips;
+        source startup_messg.sh;
+        bash'
+#+END_SRC
+
+
+In the next line 
+#+BEGIN_SRC sh
+screen -d -m /home/docker/env/neurosci/bin/smtweb --allips
+#+END_SRC
+the window manager [[https://www.gnu.org/software/screen/][screen]] is used to run the process ~smtweb --allips~ in a detached session (~-d~) in the background.

@@ -10,35 +10,32 @@ permalink: reproduce/docker
 ---
 #+END_HTML
 
+I provide the full environment used for all computations referenced in the article in form of Docker image. In short, Docker is a --Wikipedia description--
 
-I'm using ~felix11h/aniso_netw_env~ on the Docker Hub.
+* Docker image
 
-With the simple bash script ~access_lab.sh~ the computational environment can be accessed. In the directory, use
+The Docker image used for this project is ~felix11h/aniso_netw_env~ and is available on [[https://hub.docker.com/r/felix11h/aniso_netw_env/][Docker Hub]]. A short list of the most important dependencies included in this image are 
+
+ - Python
+ - scipy
+ - Graph Tool
+ - tex-live
+ - [[http://neuralensemble.org/sumatra/][Sumatra]] 0.7
+
+* Accessing the Docker container
+
+The computational environment can be most easily accessed using the provided bash script ~access_lab.sh~. In the directory,
 #+BEGIN_SRC sh
-. access_lab.sh
+source access_lab.sh
 #+END_SRC
-to get environment started. 
+to start the container. The image ~felix11h/aniso_netw_env~ will be downloaded automatically if it's not available on your machine already (this will take some time and around 5 GB of disk space!). 
 
-
-Here's a rundown of the 
+In your terminal you should now see something along the lines of
 
 #+BEGIN_SRC sh
-#!/bin/bash
-
-docker run -it -p 127.0.0.1:8015:8000 \
-       --user="$(id -u):$(id -g)" \
-       -v $(pwd):/home/lab felix11h/aniso_netw_env \
-       /bin/bash -c \
-       'source /home/docker/env/neurosci/bin/activate;
-        screen -d -m /home/docker/env/neurosci/bin/smtweb --allips;
-        source startup_messg.sh;
-        bash'
+docker@c30441c7f888:/home/lab$
 #+END_SRC
 
+indicating that you've successfully started the container and have now access to all of the tools listed above. You can now access the lab notebook through the [[http://anisotropic-connectivity-local-circuits.github.io/reproduce/sumatra][Sumatra]] web interface. 
 
-
-In the next line 
-#+BEGIN_SRC sh
-screen -d -m /home/docker/env/neurosci/bin/smtweb --allips
-#+END_SRC
-the window manager [[https://www.gnu.org/software/screen/][screen]] is used to run the process ~smtweb --allips~ in a detached session (~-d~) in the background.
+ 
