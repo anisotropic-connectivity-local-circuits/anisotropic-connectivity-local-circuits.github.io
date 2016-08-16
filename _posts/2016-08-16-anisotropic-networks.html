@@ -1,0 +1,28 @@
+---
+layout: page
+title: Anisotropic networks
+date: 2016-08-16
+category: docs
+permalink: docs/anisotropic-networks
+---
+
+
+<p>
+more<br  />
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #b58900;">self_loops</span> = g.new_graph_property(<span style="color: #2aa198;">"bool"</span>)
+<span style="color: #b58900;">self_loops</span>[g] = self_loops_allowed
+<span style="color: #b58900;">g.graph_properties</span>[<span style="color: #2aa198;">"self_loops"</span>] = self_loops
+
+<span style="color: #b58900;">parallel_edges</span> = g.new_graph_property(<span style="color: #2aa198;">"bool"</span>)
+<span style="color: #b58900;">parallel_edges</span>[g] = parallel_edges_allowed
+<span style="color: #b58900;">g.graph_properties</span>[<span style="color: #2aa198;">"parallel_edges"</span>] = parallel_edges
+
+<span style="color: #b58900;">torus</span> = g.new_graph_property(<span style="color: #2aa198;">"bool"</span>)
+<span style="color: #b58900;">torus</span>[g] = Torus
+<span style="color: #b58900;">g.graph_properties</span>[<span style="color: #2aa198;">"torus"</span>] = torus
+</pre>
+</div>

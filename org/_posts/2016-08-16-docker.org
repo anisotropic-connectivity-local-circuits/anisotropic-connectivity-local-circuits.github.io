@@ -3,10 +3,10 @@
 #+BEGIN_HTML
 ---
 layout: page
-title: New something
-date: 2016-08-10
-category: new
-permalink: new/new-something
+title: Docker
+date: 2016-08-16
+category: reproduce
+permalink: reproduce/docker
 ---
 #+END_HTML
 
