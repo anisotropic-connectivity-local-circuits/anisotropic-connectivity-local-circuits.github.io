@@ -10,25 +10,26 @@ permalink: reproduce/docker
 ---
 #+END_HTML
 
-I provide the full environment used for all computations referenced in the article in form of Docker image. In short, [[https://www.docker.com/][Docker]] uses virtualization on the operating system level to provide "containers" for Linux applications and has been --Boettinger
+The full environment used for all computations referenced in the article is provided in form of a Docker image. In short, [[https://www.docker.com/][Docker]] uses virtualization on the operating system level to provide "containers" for Linux applications. To be able to access all information on this research project, please install Docker following the instructions given [[https://docs.docker.com/engine/installation/][here]].
 
-* Docker image
+* Docker Image
 
-The Docker image used for this project is ~felix11h/aniso_netw_env~ and is available on [[https://hub.docker.com/r/felix11h/aniso_netw_env/][Docker Hub]]. A short list of the most important dependencies included in this image are 
+The Docker image used for this project is named ~felix11h/aniso_netw_env~ and is available on [[https://hub.docker.com/r/felix11h/aniso_netw_env/][Docker Hub]]. A short list of the most important dependencies included in this image are 
 
- - Python
- - scipy
- - Graph Tool
- - tex-live
+ - [[https://www.python.org/][Python]] 2.7.9
+ - [[https://www.scipy.org/][SciPy]] 0.14.0
+ - [[http://www.numpy.org/][NumPy]] 1.8.2
+ - [[https://graph-tool.skewed.de/][graph_tool]] 2.12
+ - [[https://www.tug.org/texlive/][Tex Live]] 2015
  - [[http://neuralensemble.org/sumatra/][Sumatra]] 0.7
 
-* Accessing the Docker container
+* Accessing the Docker Container
 
 The computational environment can be most easily accessed using the provided bash script ~access_lab.sh~. In the directory,
 #+BEGIN_SRC sh
 source access_lab.sh
 #+END_SRC
-to start the container. The image ~felix11h/aniso_netw_env~ will be downloaded automatically if it's not available on your machine already (this will take some time and around 5 GB of disk space!). 
+to start the container. Assuming you've installed Docker, the image ~felix11h/aniso_netw_env~ will be downloaded automatically if it's not available on your machine already (this will take some time and around 5 GB of disk space!). 
 
 In your terminal you should now see something along the lines of
 
@@ -36,6 +37,6 @@ In your terminal you should now see something along the lines of
 docker@c30441c7f888:/home/lab$
 #+END_SRC
 
-indicating that you've successfully started the container and have now access to all of the tools listed above. You can now access the lab notebook through the [[http://anisotropic-connectivity-local-circuits.github.io/reproduce/sumatra][Sumatra]] web interface. 
+indicating that you've successfully started the container and have now access to all of the tools listed above. You can now access the lab notebook through the [[http://anisotropic-connectivity-local-circuits.github.io/reproduce/sumatra][Sumatra]] web interface. If you need more details on the Docker image and accessing it, see the [[https://anisotropic-connectivity-local-circuits.github.io/trouble/docker][troubleshooting]] section.
 
  

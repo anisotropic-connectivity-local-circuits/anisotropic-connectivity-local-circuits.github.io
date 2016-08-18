@@ -7,24 +7,26 @@ permalink: reproduce/docker
 ---
 
 <p>
-I provide the full environment used for all computations referenced in the article in form of Docker image. In short, <a href="https://www.docker.com/">Docker</a> uses virtualization on the operating system level to provide "containers" for Linux applications and has been &#x2013;Boettinger<br  />
+The full environment used for all computations referenced in the article is provided in form of a Docker image. In short, <a href="https://www.docker.com/">Docker</a> uses virtualization on the operating system level to provide "containers" for Linux applications. To be able to access all information on this research project, please install Docker following the instructions given <a href="https://docs.docker.com/engine/installation/">here</a>.<br  />
 </p>
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Docker image</h2>
+<h2 id="sec-1">Docker Image</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-The Docker image used for this project is <code>felix11h/aniso_netw_env</code> and is available on <a href="https://hub.docker.com/r/felix11h/aniso_netw_env/">Docker Hub</a>. A short list of the most important dependencies included in this image are<br  />
+The Docker image used for this project is named <code>felix11h/aniso_netw_env</code> and is available on <a href="https://hub.docker.com/r/felix11h/aniso_netw_env/">Docker Hub</a>. A short list of the most important dependencies included in this image are<br  />
 </p>
 
 <ul class="org-ul">
-<li>Python<br  />
+<li><a href="https://www.python.org/">Python</a> 2.7.9<br  />
 </li>
-<li>scipy<br  />
+<li><a href="https://www.scipy.org/">SciPy</a> 0.14.0<br  />
 </li>
-<li>Graph Tool<br  />
+<li><a href="http://www.numpy.org/">NumPy</a> 1.8.2<br  />
 </li>
-<li>tex-live<br  />
+<li><a href="https://graph-tool.skewed.de/">graph<sub>tool</sub></a> 2.12<br  />
+</li>
+<li><a href="https://www.tug.org/texlive/">Tex Live</a> 2015<br  />
 </li>
 <li><a href="http://neuralensemble.org/sumatra/">Sumatra</a> 0.7<br  />
 </li>
@@ -33,7 +35,7 @@ The Docker image used for this project is <code>felix11h/aniso_netw_env</code> a
 </div>
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Accessing the Docker container</h2>
+<h2 id="sec-2">Accessing the Docker Container</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The computational environment can be most easily accessed using the provided bash script <code>access_lab.sh</code>. In the directory,<br  />
@@ -44,7 +46,7 @@ The computational environment can be most easily accessed using the provided bas
 </pre>
 </div>
 <p>
-to start the container. The image <code>felix11h/aniso_netw_env</code> will be downloaded automatically if it's not available on your machine already (this will take some time and around 5 GB of disk space!).<br  />
+to start the container. Assuming you've installed Docker, the image <code>felix11h/aniso_netw_env</code> will be downloaded automatically if it's not available on your machine already (this will take some time and around 5 GB of disk space!).<br  />
 </p>
 
 <p>
@@ -58,7 +60,7 @@ In your terminal you should now see something along the lines of<br  />
 </div>
 
 <p>
-indicating that you've successfully started the container and have now access to all of the tools listed above. You can now access the lab notebook through the <a href="http://anisotropic-connectivity-local-circuits.github.io/reproduce/sumatra">Sumatra</a> web interface.<br  />
+indicating that you've successfully started the container and have now access to all of the tools listed above. You can now access the lab notebook through the <a href="http://anisotropic-connectivity-local-circuits.github.io/reproduce/sumatra">Sumatra</a> web interface. If you need more details on the Docker image and accessing it, see the <a href="https://anisotropic-connectivity-local-circuits.github.io/trouble/docker">troubleshooting</a> section.<br  />
 </p>
 </div>
 </div>

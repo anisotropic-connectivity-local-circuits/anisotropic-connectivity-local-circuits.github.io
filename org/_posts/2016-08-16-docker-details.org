@@ -11,7 +11,7 @@ permalink: trouble/docker
 #+END_HTML
 
 
-* Accessing the container 
+* Accessing the Container 
 
 Here's a rundown of ~access_lab.sh~.
 
@@ -20,7 +20,8 @@ Here's a rundown of ~access_lab.sh~.
 
 docker run -it -p 127.0.0.1:8015:8000 \
        --user="$(id -u):$(id -g)" \
-       -v $(pwd):/home/lab felix11h/aniso_netw_env \
+       -v $(pwd):/home/lab \
+       felix11h/aniso_netw_env \
        /bin/bash -c \
        'source /home/docker/env/neurosci/bin/activate;
         screen -d -m /home/docker/env/neurosci/bin/smtweb --allips;
@@ -29,8 +30,29 @@ docker run -it -p 127.0.0.1:8015:8000 \
 #+END_SRC
 
 
+The command
+#+BEGIN_SRC sh
+-v $(pwd):/home/lab 
+#+END_SRC
+maps the current directory to ~/home/lab~ within the container as a shared volume.
+
+Finally,
+#+BEGIN_SRC sh
+felix11h/aniso_netw_env 
+#+END_SRC
+is the name of the Docker image used as it is available on [[https://hub.docker.com/r/felix11h/aniso_netw_env/][Docker Hub]].
+
+The last line of commands
+#+BEGIN_SRC sh
+/bin/bash -c \
+ 'source /home/docker/env/neurosci/bin/activate;
+  screen -d -m /home/docker/env/neurosci/bin/smtweb --allips;
+  source startup_messg.sh;
+  bash'
+#+END_SRC
+
 In the next line 
 #+BEGIN_SRC sh
 screen -d -m /home/docker/env/neurosci/bin/smtweb --allips
 #+END_SRC
-the window manager [[https://www.gnu.org/software/screen/][screen]] is used to run the process ~smtweb --allips~ in a detached session (~-d~) in the background.
+the window manager [[https://www.gnu.org/software/screen/][screen]] is used to run the process ~smtweb --allips~ in a detached session (~-d~) in the background. The flag ~allips~ is necessary to run the Sumatra web interface at ~0.0.0.0:8000~, as opposed to ~127.0.0.1:8000~, which Docker assumes when forwarding publishing ports to the host.
