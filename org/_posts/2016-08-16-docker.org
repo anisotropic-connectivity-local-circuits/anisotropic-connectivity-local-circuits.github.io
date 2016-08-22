@@ -21,7 +21,7 @@ The Docker image used for this project is named ~felix11h/aniso_netw_env~ and is
  - [[http://www.numpy.org/][NumPy]] 1.8.2
  - [[https://graph-tool.skewed.de/][graph_tool]] 2.12
  - [[https://www.tug.org/texlive/][Tex Live]] 2015
- - [[http://neuralensemble.org/sumatra/][Sumatra]] 0.7
+ - [[http://neuralensemble.org/sumatra/][Sumatra]] 0.7.3
 
 * Accessing the Docker Container
 
